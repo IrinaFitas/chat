@@ -31,15 +31,18 @@
 <style lang="scss" scoped>
     .container {
         width: 230px;
+		box-sizing: border-box;
         height: 100vh;
         color: #a0a4a7;
         background: linear-gradient(-45deg, #1d232a 0%, #1e242b 10%, #1f252c 20%, #20262d 30%, #21272e 40%, #222830 50%, #21282f 60%, #252c34 70%, #242b32 80%, #232a31 90%, #232931 100%);
-        padding-top: 20px;
+        padding: 20px;
 
         header {
             display: flex;
-            justify-content: space-around;
-            align-items: center;
+            justify-content: space-between;
+			align-items: center;
+			padding-left: 10px;
+			padding-right: 5px;
 
             .title {
                 color: #ffffff;
@@ -54,6 +57,40 @@
                 background: url("../images/Add-contact-icon.png") no-repeat center;
             }
         }
+
+        .navigation {
+
+            ul {
+                list-style: none;				
+                font-size: 14px;
+				padding: 0;
+				margin: 0;
+				width: 190px;
+				padding-bottom: 15px;
+
+				+ ul {
+					border-top: 1px solid #363c44;
+					padding-top: 10px;
+				}
+			              
+                li	{
+					display: flex;
+					width: 190px;
+					box-sizing: border-box;
+					padding: 10px;
+					line-height: 16px;
+
+					&:hover {
+						background-color: #333c44;
+						border-radius: 5px;
+					}
+					
+					span {
+						color: #ffffff;
+						margin-left: auto;
+					}
+				}
+            }
+        }
     }
 </style>
-
