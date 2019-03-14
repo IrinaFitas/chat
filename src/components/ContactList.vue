@@ -7,45 +7,81 @@
 		<div class="contact-list-container">
 			<ul class='contact-list'>
 				<li>
-					<div>
-						<div class="user-photo">Photo</div>
-						<p class="user-name">Matt Thompson</p>
-						<p class="message">Thanks again you have been...</p>
+					<div class="content-list">
+						<div class="user-photo"></div>
+						<div class="user-message">
+							<p class="user-name">Matt Thompson</p>
+							<p class="message">Thanks again you have been...</p>
+						</div>
+						<div class="user-info">
+							<button>...</button>
+							<p>10 min</p>
+						</div>						
 					</div>
 				</li>
 				<li>
-					<div>
-						<div class="user-photo">Photo</div>
-						<p class="user-name">Claire Sharwood</p>
-						<p class="message">My selfie game is lacking can...</p>
+					<div class="content-list">
+						<div class="user-photo"></div>
+						<div class="user-message">
+							<p class="user-name">Claire Sharwood</p>
+							<p class="message">My selfie game is lacking can...</p>
+						</div>
+						<div class="user-info">
+							<button>...</button>
+							<p>10 min</p>
+						</div>
 					</div>
 				</li>
 				<li>
-					<div>
-						<div class="user-photo">Photo</div>
-						<p class="user-name">Kirsten Mckellar</p>
-						<p class="message">Where is the nearest place to...</p>
+					<div class="content-list">
+						<div class="user-photo"></div>
+						<div class="user-message">
+							<p class="user-name">Kirsten Mckellar</p>
+							<p class="message">Where is the nearest place to...</p>
+						</div>
+						<div class="user-info">
+							<button>...</button>
+							<p>10 min</p>
+						</div>
 					</div>
 				</li>
 				<li>
-					<div>
-						<div class="user-photo">Photo</div>
-						<p class="user-name">Shaun Gardner</p>
-						<p class="message">Ok that sounds perfect</p>
+					<div class="content-list">
+						<div class="user-photo"></div>
+						<div class="user-message">
+							<p class="user-name">Shaun Gardner</p>
+							<p class="message">Ok that sounds perfect</p>
+						</div>
+						<div class="user-info">
+							<button>...</button>
+							<p>10 min</p>
+						</div>
 					</div>
 				</li>
 				<li>
-					<div>
-						<div class="user-photo">Photo</div>
-						<p class="user-name">Mace Windu</p>
-						<p class="message">Protect the senator at all costs. </p>
+					<div class="content-list">
+						<div class="user-photo"></div>
+						<div class="user-message">
+							<p class="user-name">Mace Windu</p>
+							<p class="message">Protect the senator at all costs. </p>
+						</div>
+						<div class="user-info">
+							<button>...</button>
+							<p>10 min</p>
+						</div>
 					</div>
 				</li>
 				<li>
-					<div>
-						<div class="user-photo">Photo</div>
-						<p class="user-name">Kayne West</p>
-						<p class="message">So tell the voice inside your...</p>
+					<div class="content-list">
+						<div class="user-photo"></div>
+						<div class="user-message">
+							<p class="user-name">Kayne West</p>
+							<p class="message">So tell the voice inside your...So tell the voice inside your...So tell the voice inside your...So tell the voice inside your...So tell the voice inside your...So tell the voice inside your...So tell the voice inside your...So tell the voice inside your...</p>
+						</div>
+						<div class="user-info">
+							<button>...</button>
+							<p>10 min</p>
+						</div>
 					</div>
 				</li>
 			</ul>
@@ -80,6 +116,89 @@
 		.contact-list-container {
 			.contact-list {
 				list-style: none;
+				padding: 0;
+				margin: 0;
+			}
+
+			li {
+				padding: 0;
+				margin: 0;
+
+				.content-list {
+					display: flex;
+					align-items: center;
+					padding: 24px 20px 24px 15px;
+					background-color: fuchsia;
+					box-sizing: border-box;
+
+					.user-photo {
+						position: relative;
+						width: 50px;
+						height: 50px;
+						border-radius: 50%;
+						margin-right: 18px;
+						background-color: grey;
+
+						&::before {
+							display: block;
+							content: "";
+							position: absolute;
+							left: -4px;
+							width: 6px;
+							height: 6px;
+							background-color: #2dc100;
+							border-radius: 50%;
+						}
+
+						&::after {
+							display: block;
+							content: "";
+							position: absolute;
+							bottom: -24px;
+							width: 50px;
+							height: 1px;
+							background-color: #363c44;
+						}
+					}
+
+					.user-message {
+						height: 36px;
+						width: 200px;
+						overflow: hidden;
+						text-align: left;
+
+						.user-name {
+							font-size: 16px;
+							font-weight: bold;
+							margin: 0;
+						}
+						.message {
+							margin: 0;
+							font-size: 14px;
+							color: #abacae;
+						}
+					}
+
+					.user-info {
+						margin-left: auto;
+						align-self: flex-start;
+
+						button {
+							border: none;
+							background-color: transparent;
+							color: #ffffff;
+							font-size: 24px;
+							font-weight: bold;
+							outline: none;
+						}
+
+						p {
+							margin: 0;
+							font-size: 11px;
+							color: #363c44;
+						}
+					}
+				}
 			}
 		}
 	}
