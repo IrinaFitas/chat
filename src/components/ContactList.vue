@@ -97,7 +97,7 @@
 		
 		.search-contact {
 			padding: 20px;
-			border-bottom: 1px solid #363c44
+			border-bottom: 1px solid #363c44;
 		}
 
 		input {
@@ -128,7 +128,6 @@
 					display: flex;
 					align-items: center;
 					padding: 24px 20px 24px 15px;
-					background-color: fuchsia;
 					box-sizing: border-box;
 
 					.user-photo {
