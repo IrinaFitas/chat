@@ -84,7 +84,7 @@ export default {
             border-top: 1px solid #dae0e1;
 
             button {
-                
+                outline: none;
                 border: none;
             }
 

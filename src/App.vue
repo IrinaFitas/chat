@@ -3,6 +3,7 @@
 		<app-inbox></app-inbox>
 		<app-contact-list></app-contact-list>
 		<app-chat-window></app-chat-window>
+		<app-user-profile></app-user-profile>
 	</div>
 </template>
 
@@ -10,11 +11,13 @@
 import Inbox from "./components/Inbox.vue";
 import ContactList from "./components/ContactList.vue";
 import ChatWindow from "./components/chat/ChatWindow.vue";
+import UserProfile from "./components/UserProfile.vue";
 export default {
 	components: {
 		appInbox: Inbox,
 		appContactList: ContactList,
-		appChatWindow: ChatWindow
+		appChatWindow: ChatWindow,
+		appUserProfile: UserProfile
 	}	
 }
 </script>

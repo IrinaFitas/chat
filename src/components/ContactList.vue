@@ -10,12 +10,11 @@
 					<div class="content-list">
 						<div class="user-photo"></div>
 						<div class="user-message">
-							<p class="user-name">Matt Thompson</p>
-							<p class="message">Thanks again you have been...</p>
-						</div>
-						<div class="user-info">
-							<button>...</button>
-							<p>10 min</p>
+							<p class="user-name">Matt Thompson<button>...</button></p>
+							<p class="message">
+								<span class="message-text">Thanks again you have been</span>
+								<span class="message-time">10 min</span>
+							</p>
 						</div>						
 					</div>
 				</li>
@@ -23,25 +22,11 @@
 					<div class="content-list">
 						<div class="user-photo"></div>
 						<div class="user-message">
-							<p class="user-name">Claire Sharwood</p>
-							<p class="message">My selfie game is lacking can...</p>
-						</div>
-						<div class="user-info">
-							<button>...</button>
-							<p>10 min</p>
-						</div>
-					</div>
-				</li>
-				<li>
-					<div class="content-list">
-						<div class="user-photo"></div>
-						<div class="user-message">
-							<p class="user-name">Kirsten Mckellar</p>
-							<p class="message">Where is the nearest place to...</p>
-						</div>
-						<div class="user-info">
-							<button>...</button>
-							<p>10 min</p>
+							<p class="user-name">Claire Sharwood<button>...</button></p>
+							<p class="message">
+								<span class="message-text">My selfie game is lacking canMy selfie game is lacking canMy selfie game is lacking canMy selfie game is lacking can</span>
+								<span class="message-time">10 min</span>
+							</p>
 						</div>
 					</div>
 				</li>
@@ -49,25 +34,11 @@
 					<div class="content-list">
 						<div class="user-photo"></div>
 						<div class="user-message">
-							<p class="user-name">Shaun Gardner</p>
-							<p class="message">Ok that sounds perfect</p>
-						</div>
-						<div class="user-info">
-							<button>...</button>
-							<p>10 min</p>
-						</div>
-					</div>
-				</li>
-				<li>
-					<div class="content-list">
-						<div class="user-photo"></div>
-						<div class="user-message">
-							<p class="user-name">Mace Windu</p>
-							<p class="message">Protect the senator at all costs. </p>
-						</div>
-						<div class="user-info">
-							<button>...</button>
-							<p>10 min</p>
+							<p class="user-name">Kirsten Mckellar<button>...</button></p>
+							<p class="message">
+								<span class="message-text">Where is the nearest place to</span>
+								<span class="message-time">10 min</span>
+							</p>
 						</div>
 					</div>
 				</li>
@@ -75,12 +46,35 @@
 					<div class="content-list">
 						<div class="user-photo"></div>
 						<div class="user-message">
-							<p class="user-name">Kayne West</p>
-							<p class="message">So tell the voice inside your...So tell the voice inside your...So tell the voice inside your...So tell the voice inside your...So tell the voice inside your...So tell the voice inside your...So tell the voice inside your...So tell the voice inside your...</p>
+							<p class="user-name">Shaun Gardner<button>...</button></p>
+							<p class="message">
+								<span class="message-text">Ok that sounds perfect</span>
+								<span class="message-time">10 min</span>
+							</p>
 						</div>
-						<div class="user-info">
-							<button>...</button>
-							<p>10 min</p>
+					</div>
+				</li>
+				<li>
+					<div class="content-list">
+						<div class="user-photo"></div>
+						<div class="user-message">
+							<p class="user-name">Mace Windu<button>...</button></p>
+							<p class="message">
+								<span class="message-text">Protect the senator at all costs.</span>
+								<span class="message-time">10 min</span>
+							</p>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="content-list">
+						<div class="user-photo"></div>
+						<div class="user-message">
+							<p class="user-name">Kayne West<button>...</button></p>
+							<p class="message">
+								<span class="message-text">So tell the voice inside your So tell the voice inside your</span>
+								<span class="message-time">10 min</span>
+							</p>
 						</div>
 					</div>
 				</li>
@@ -159,46 +153,52 @@
 							background-color: #363c44;
 						}
 					}
-
-					.user-message {
-						height: 36px;
-						width: 200px;
-						overflow: hidden;
-						text-align: left;
-
-						.user-name {
-							font-size: 16px;
-							font-weight: bold;
-							margin: 0;
-						}
-						.message {
-							margin: 0;
-							font-size: 14px;
-							color: #abacae;
-						}
-					}
-
-					.user-info {
-						margin-left: auto;
-						align-self: flex-start;
-
-						button {
-							border: none;
-							background-color: transparent;
-							color: #ffffff;
-							font-size: 24px;
-							font-weight: bold;
-							outline: none;
-						}
-
-						p {
-							margin: 0;
-							font-size: 11px;
-							color: #363c44;
-						}
-					}
 				}
 			}
+		}
+	}
+	.user-message {
+		flex: 1 0 auto;
+		height: 36px;
+		text-align: left;
+
+		button {
+			float: right;
+			padding: 0;
+			border: none;
+			background-color: transparent;
+			color: #ffffff;
+			font-size: 24px;
+			line-height: 7px;
+			font-weight: bold;
+			outline: none;
+			cursor: pointer;
+		}
+	}
+	.user-name {
+		font-size: 16px;
+		font-weight: bold;
+		margin: 0;
+	}
+	.message {
+		margin: 5px 0 0;
+		font-size: 14px;
+		color: #abacae;
+
+		&-text {
+			display: inline-block;
+			width: 190px;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			overflow: hidden;
+		}
+		&-time {
+			float: right;
+			display: inline-block;
+			margin-top: 2px;
+			font-size: 11px;
+			color: #363c44;
+			vertical-align: top;
 		}
 	}
 </style>
