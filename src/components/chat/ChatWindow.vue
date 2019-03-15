@@ -10,9 +10,11 @@
         </header>
         <footer>
             <button class="attach-btn"></button>
-            <div class="type-message">Type your message...</div>
-            <button class="emoji-btn"></button>
-            <button class="send-btn"></button>
+            <div class="type-message" contenteditable="true">Type your message...</div>
+            <div class="btn-send-emojis">
+                <button class="emoji-btn"></button>
+                <button class="send-btn"></button>
+            </div>
         </footer>
     </div>
 </template>
@@ -71,9 +73,45 @@ export default {
         }
 
         footer {
+            display: flex;
+            align-items: center;
             margin-top: auto;
+            padding-left: 30px;
+            padding-right: 25px;
+            height: 80px;
+            box-sizing: border-box;
             background-color: #fbfcfd;
-            background-color: fuchsia;
+            border-top: 1px solid #dae0e1;
+
+            button {
+                
+                border: none;
+            }
+
+            .attach-btn {
+                width: 22px;
+                height: 30px;
+                margin-right: 25px;
+                background: url("../../images/attach-icon.png") no-repeat center;
+            }
+
+            .emoji-btn {
+                width: 30px;
+                height: 30px;
+                margin-right: 20px;
+                background: url("../../images/emojis.png") no-repeat center;
+            }
+
+            .send-btn {
+                width: 38px;
+                height: 38px;
+                border-radius: 50%;
+                background: url("../../images/Send-icon.png") no-repeat center #616d7a;
+            }
+
+            .btn-send-emojis {
+                margin-left: auto;
+            }
         }
     }
 </style>
