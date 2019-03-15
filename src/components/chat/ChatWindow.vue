@@ -9,7 +9,10 @@
             </div>
         </header>
         <footer>
-            <div>TExt</div>
+            <button class="attach-btn"></button>
+            <div class="type-message">Type your message...</div>
+            <button class="emoji-btn"></button>
+            <button class="send-btn"></button>
         </footer>
     </div>
 </template>
@@ -22,6 +25,8 @@ export default {
 
 <style lang="scss" scoped>
     .container {
+        display: flex;
+        flex-direction: column;
         height: 100vh;
         width: 650px;
         background-image: linear-gradient(to right bottom, #f7fbfb 0%, #ecf1f5 10%, #eaeef4 20%, #e9ebf1 30%, #f0f2f4 40%, #f1f2f4 50%, #eceef2 60%, #eceef2 70%, #ebedf1 80%, #eaecf1 90%, #e7eaef 100%);
@@ -44,11 +49,12 @@ export default {
 
                 button {
                     width: 80px;
-                    height: 80px;
+                    height: 85px;
                     margin: 0;
                     border: none;
                     background-color: transparent;
                     border-left: 1px solid #dae0e1;
+                    outline: none;
                 }
 
                 .specify-btn {
@@ -62,6 +68,12 @@ export default {
                     background: url("../../images/video-call-icon.png") no-repeat center;
                 }
             }
+        }
+
+        footer {
+            margin-top: auto;
+            background-color: #fbfcfd;
+            background-color: fuchsia;
         }
     }
 </style>
