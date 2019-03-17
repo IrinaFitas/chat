@@ -7,34 +7,35 @@
         </header>
         
         <div class="user-profile">
-            <button>btn</button>
-            <div>
+            <div class="photo-container">
+                <button>...</button>
                 <div class="photo"></div>
-                <p>Kirsten Mckellar</p>
+            </div>
+            <div class="user-profile-name">
+                <p class="name">Kirsten Mckellar</p>
                 <p>Cape Town, RSA</p>
             </div>
-            <button>...</button>
         </div>
 
         <div class="user-details">
-            <div>
-                <p>Nickname:</p>
+            <div class="user-details-field">
+                <p class="field-name">Nickname:</p>
                 <p>Killa Kella</p>
             </div>
-            <div>
-                <p>Tel</p>
+            <div class="user-details-field">
+                <p class="field-name">Tel:</p>
                 <p>072 143 9920</p>
             </div>
-            <div>
-                <p>Date Of Birth:</p>
+            <div class="user-details-field">
+                <p class="field-name">Date Of Birth:</p>
                 <p>July 12, 1988</p>
             </div>
-            <div>
-                <p>Gender:</p>
+            <div class="user-details-field">
+                <p class="field-name">Gender:</p>
                 <p>Female</p>
             </div>
-            <div>
-                <p>Language:</p>
+            <div class="user-details-field">
+                <p class="field-name">Language:</p>
                 <p>English</p>
             </div>
         </div>
@@ -50,6 +51,7 @@ export default {
 <style lang="scss" scoped>
     .container {
         width: 275px;
+        box-sizing: border-box;
         background-color: #ffffff;
 
         header {
@@ -90,6 +92,71 @@ export default {
                 border-style: solid;
                 border-width: 3px 3px 0 3px;
                 border-color: #2b80ff transparent transparent transparent;
+            }
+        }
+
+        .user-profile {
+            border-bottom: 1px solid #e5e5e5;
+            padding-bottom: 35px;
+
+            .photo-container {
+                overflow: hidden;
+            }
+
+            .photo {
+                width: 120px;
+                height: 120px;
+                margin: 30px auto;
+                border-radius: 50%;
+                background: url("../images/photo.png") no-repeat center grey;
+            }
+
+            button {
+                float: right;
+                width: 22px;
+                height: 10px;
+                margin: 10px 20px 0 0;
+                font-size: 25px;
+                font-weight: bold;
+                color: #666666;
+                background-color: transparent;
+                border: none;
+
+            }
+
+            .user-profile-name {
+                text-align: center;
+
+                p {
+                    margin: 0;
+                    font-size: 14px;
+                }
+                .name {
+                    color: #293037;
+                    font-size: 20px;
+                }
+            }
+        }
+
+        .user-details {
+            margin: 20px 30px 20px 30px;
+            .user-details-field {
+                display: flex;
+                padding-top: 20px;
+                padding-bottom: 20px;
+                font-size: 13px;
+                border-bottom: 1px solid #e5e5e5;
+            }
+
+            p {
+                flex-basis: 50%;
+                text-align: right;
+                margin: 0;
+            }
+
+            .field-name {
+                font-weight: bold;
+                text-align: left;
             }
         }
     }

@@ -22,6 +22,9 @@ export default {
 }
 </script>
 <style lang="scss">
+body {
+	margin: 0;
+}
 #app {
 	display: flex;
 	height: 100vh;
