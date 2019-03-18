@@ -27,7 +27,6 @@ body {
 }
 #app {
 	display: flex;
-	height: 100vh;
 	font-family: 'Roboto', sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;

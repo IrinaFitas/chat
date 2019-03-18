@@ -85,9 +85,13 @@
 
 <style lang="scss" scoped>
 	.container {
-		width: 360px;
+		max-width: 360px;
 		color: #ffffff;
 		background: linear-gradient(-45deg, #1d232a 0%, #1e242b 10%, #1f252c 20%, #20262d 30%, #21272e 40%, #222830 50%, #21282f 60%, #252c34 70%, #242b32 80%, #232a31 90%, #232931 100%);
+
+		@media (max-width: 1215px) {
+			width: 330px;
+		}
 		
 		.search-contact {
 			height: 79px;
