@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container-user-profile">
         <header>
             <button class="notification-btn"></button>
             <p>Matt Thompson</p>
@@ -49,7 +49,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    .container {
+    .container-user-profile {
         max-width: 275px;
         flex-grow: 1;
         box-sizing: border-box;

@@ -8,6 +8,7 @@
                 <button class="video-call-btn"></button>
             </div>
         </header>
+        <app-chat></app-chat>
         <footer>
             <button class="attach-btn"></button>
             <div class="type-message" contenteditable="true">Type your message...</div>
@@ -20,8 +21,11 @@
 </template>
 
 <script>
+import Chat from "./Chat.vue";
 export default {
-    
+    components: {
+        appChat: Chat
+    }
 }
 </script>
 
@@ -38,7 +42,6 @@ export default {
             display: flex;
             height: 79px;
             box-sizing: border-box;
-            margin-bottom: -1px;
             border-bottom: 1px solid #dae0e1;
 
             @media (max-width: 1170px) {
@@ -97,12 +100,6 @@ export default {
                         border: none;
                     }
                 }
-
-                // &:hover {
-                //     @media (max-width: 1170px) {
-                        
-                //     }
-                // }
 
                 .specify-btn {
                     background: url("../../images/Star-icon.png") no-repeat center;

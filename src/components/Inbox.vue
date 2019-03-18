@@ -71,16 +71,16 @@
 				padding-bottom: 15px;
 
 				+ ul {
-					border-top: 1px solid #363c44;
-					padding-top: 10px;
+                    border-top: 1px solid #363c44;
+                    padding-top: 10px;
 				}
 			              
                 li	{
-					display: flex;
-					width: 190px;
-					box-sizing: border-box;
-					padding: 10px;
-					line-height: 16px;
+                    display: flex;
+                    width: 190px;
+                    box-sizing: border-box;
+                    padding: 10px;
+                    line-height: 16px;
 
 					&:hover {
 						background-color: #333c44;
