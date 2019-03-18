@@ -41,6 +41,8 @@
             display: flex;
             justify-content: space-between;
 			align-items: center;
+            height: 79px;
+            box-sizing: border-box;
 			padding-left: 10px;
 			padding-right: 5px;
 

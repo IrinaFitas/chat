@@ -57,6 +57,8 @@ export default {
         header {
             display: flex;
             align-items: center;
+            height: 79px;
+            box-sizing: border-box;
             padding: 20px;
             border-bottom: 1px solid #e5e5e5;
 
@@ -73,17 +75,17 @@ export default {
                 background: url("../images/Notifications-icon.png") no-repeat center;
                 outline: none;
                 margin-right: auto;
-            }
-
-            &::before {
-                content: "";
-                position: absolute;
                 
-            
-                width: 6px;
-                height: 6px;
-                border-radius: 50%;
-                background-color: #0084ff;
+                &::before {
+                    content: "";
+                    position: absolute;
+                    left: -5px;
+                    top: -5px;                
+                    width: 6px;
+                    height: 6px;
+                    border-radius: 50%;
+                    background-color: #0084ff;
+                }
             }
 
             .dropdown {

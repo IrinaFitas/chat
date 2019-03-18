@@ -35,8 +35,9 @@ export default {
 
         header {
             display: flex;
-            margin-bottom: -1px;
+            height: 79px;
             box-sizing: border-box;
+            margin-bottom: -1px;
             border-bottom: 1px solid #dae0e1;
 
             p {
@@ -51,7 +52,7 @@ export default {
 
                 button {
                     width: 80px;
-                    height: 85px;
+                    height: 79px;
                     margin: 0;
                     border: none;
                     background-color: transparent;
