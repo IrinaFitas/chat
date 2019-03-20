@@ -1,12 +1,12 @@
 <template>
-    <div class="container" ref="container">
+    <div class="container">
         <div class="nav-buttons">
-            <button type="button" @click="toggleNavbar">IB</button>
+            <button type="button" @click="change">IB</button>
             <button type="button">CL</button>
             <button type="button">CW</button>
             <button type="button">UP</button>
         </div>
-        <div class="navbar-container">
+        <div class="navbar-container" :class="{'show-navbar': show}">
             <header>
                 <p class="title">Inbox</p>
                 <button type="button" class="add-contact-btn"></button>
@@ -30,6 +30,7 @@
                 <ul>
                     <li>Settings</li>
                     <li>Help</li>
+                    <li @click="asyncIncrement({by: 20, duration: 500})">Click me</li>
                     <li> {{ plus }} </li>
                     <li> {{ minus }} </li>
                 </ul>
@@ -40,15 +41,31 @@
 
 <script>
 import { mapGetters } from "vuex";
+import { mapMutations } from "vuex";
+import { mapActions } from "vuex";
 export default {
     methods: {
-        toggleNavbar () {
-            this.$refs.container.classList.toggle("show-navbar");
+        // toggleNavbar () {
+        //     this.$refs.container.classList.toggle("show-navbar");
+        // },
+        // ...mapActions([ "asyncIncrement"])
+        // ...mapMutations(['increment'])
+        // incrementNumber() {
+        //     this.$store.commit("increment");
+        // }
+        change() {
+            this.$store.commit("changeShow");
+        }
+    },
+    data () {
+        return {
+            show: false
         }
     },
 
     computed: {
         ...mapGetters([
+            "show",
             "plus",
             "minus"
         ])
@@ -76,6 +93,7 @@ export default {
                 color: #ffffff;
                 padding: 5px;
                 background-color: #333c44;
+                outline: none;
             }
         }
 
@@ -137,16 +155,19 @@ export default {
             }
         }
     }
-    .show-navbar {
-
-        .navbar-container {
+    .navbar-container {
+        
+        &.show-navbar {
             display: block;
         }
-    }
-    .navbar-container {
-
         @media (max-width: 1200px) {
             display: none;
         }
     }
+    // .navbar-container {
+
+    //     @media (max-width: 1200px) {
+    //         display: none;
+    //     }
+    // }
 </style>

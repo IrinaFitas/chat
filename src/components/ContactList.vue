@@ -1,5 +1,5 @@
 <template>
-	<div class="container-contact-list">
+	<div class="container-contact-list" ref="contactList">
 		<div class="search-contact">
 			<input type="search" placeholder="Search">		
 		</div>
@@ -82,6 +82,16 @@
 		</div>
 	</div>
 </template>
+
+<script>
+import { mapGetters } from "vuex";
+export default {
+	computed: {
+		...mapGetters(["show"])
+	}
+}
+</script>
+
 
 <style lang="scss" scoped>
 	.container-contact-list {
