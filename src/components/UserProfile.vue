@@ -52,6 +52,7 @@ export default {
     .container-user-profile {
         max-width: 275px;
         flex-grow: 1;
+        flex-shrink: 0;
         box-sizing: border-box;
         background-color: #ffffff;
 

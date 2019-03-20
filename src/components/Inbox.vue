@@ -1,41 +1,83 @@
 <template>
-    <div class="container">
-        <header>
-            <p class="title">Inbox</p>
-            <button type="button" class="add-contact-btn"></button>
-        </header>
-        <nav class="navigation">
-            <ul>
-                <li>All Messages<span>21</span></li>
-                <li>Unread<span>10</span></li>
-                <li>Important<span>25</span></li>
-                <li>Drafts<span>1</span></li>
-            </ul>
-            
-            <ul>
-                <li>Teams<span>5</span></li>
-                <li>Groups<span>5</span></li>
-                <li>Channels<span>8</span></li>
-                <li>Locations<span>6</span></li>
-                <li>Media<span>4</span></li>
-            </ul>
+    <div class="container" ref="container">
+        <div class="nav-buttons">
+            <button type="button" @click="toggleNavbar">IB</button>
+            <button type="button">CL</button>
+            <button type="button">CW</button>
+            <button type="button">UP</button>
+        </div>
+        <div class="navbar-container">
+            <header>
+                <p class="title">Inbox</p>
+                <button type="button" class="add-contact-btn"></button>
+            </header>
+            <nav class="navigation">
+                <ul>
+                    <li>All Messages<span>21</span></li>
+                    <li>Unread<span>10</span></li>
+                    <li>Important<span>25</span></li>
+                    <li>Drafts<span>1</span></li>
+                </ul>
+                
+                <ul>
+                    <li>Teams<span>5</span></li>
+                    <li>Groups<span>5</span></li>
+                    <li>Channels<span>8</span></li>
+                    <li>Locations<span>6</span></li>
+                    <li>Media<span>4</span></li>
+                </ul>
 
-            <ul>
-                <li>Settings</li>
-                <li>Help</li>
-            </ul>
-        </nav>
+                <ul>
+                    <li>Settings</li>
+                    <li>Help</li>
+                    <li> {{ plus }} </li>
+                    <li> {{ minus }} </li>
+                </ul>
+            </nav>
+        </div>
     </div>
 </template>
 
+<script>
+import { mapGetters } from "vuex";
+export default {
+    methods: {
+        toggleNavbar () {
+            this.$refs.container.classList.toggle("show-navbar");
+        }
+    },
+
+    computed: {
+        ...mapGetters([
+            "plus",
+            "minus"
+        ])
+    }
+}
+</script>
+
+
 <style lang="scss" scoped>
     .container {
-        width: 230px;
+        max-width: 230px;
 		box-sizing: border-box;
         height: 100vh;
         color: #a0a4a7;
         background: linear-gradient(-45deg, #1d232a 0%, #1e242b 10%, #1f252c 20%, #20262d 30%, #21272e 40%, #222830 50%, #21282f 60%, #252c34 70%, #242b32 80%, #232a31 90%, #232931 100%);
         padding: 20px;
+
+        .nav-buttons {
+            display: flex;
+            width: 50px;
+            flex-direction: column;
+
+            button {
+                font-size: 16px;
+                color: #ffffff;
+                padding: 5px;
+                background-color: #333c44;
+            }
+        }
 
         header {
             display: flex;
@@ -93,6 +135,18 @@
 					}
 				}
             }
+        }
+    }
+    .show-navbar {
+
+        .navbar-container {
+            display: block;
+        }
+    }
+    .navbar-container {
+
+        @media (max-width: 1200px) {
+            display: none;
         }
     }
 </style>
