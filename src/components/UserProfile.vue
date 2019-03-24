@@ -55,6 +55,20 @@ export default {
         flex-shrink: 0;
         box-sizing: border-box;
         background-color: #ffffff;
+        height: 100vh;
+        overflow-y: auto;
+
+        @media (max-width: 990px) {
+            position: fixed;
+            top: 0;
+            right: 0;
+            transition: transform 0.25s ease-in-out;
+            transform: translateX(100%);
+
+            &.is-opened {
+                transform: translateX(0%);
+            }
+        }
 
         header {
             display: flex;

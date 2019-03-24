@@ -6,6 +6,7 @@
                 <button class="specify-btn"></button>
                 <button class="call-btn"></button>
                 <button class="video-call-btn"></button>
+                <button class="user-profile-btn"></button>
             </div>
         </header>
         <app-chat></app-chat>
@@ -34,9 +35,26 @@ export default {
         display: flex;
         flex-direction: column;
         height: 100vh;
+        overflow-y: auto;
         max-width: 650px;
         flex-grow: 1;
         background-image: linear-gradient(to right bottom, #f7fbfb 0%, #ecf1f5 10%, #eaeef4 20%, #e9ebf1 30%, #f0f2f4 40%, #f1f2f4 50%, #eceef2 60%, #eceef2 70%, #ebedf1 80%, #eaecf1 90%, #e7eaef 100%);
+
+        &::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        &::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 6px grey;
+	        background-color: #b3cccc;
+            border-radius: 5px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: grey;
+	        border: 1px solid #555555;
+            border-radius: 5px;
+        }
 
         header {
             display: flex;
@@ -110,6 +128,13 @@ export default {
                 }
                 .video-call-btn {
                     background: url("../../images/video-call-icon.png") no-repeat center;
+                }
+                .user-profile-btn {
+                    display: none;
+
+                    @media (max-width: 992px) {
+                        display: block;
+                    }
                 }
             }
         }

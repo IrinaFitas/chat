@@ -79,10 +79,29 @@ export default {
         max-width: 230px;
 		box-sizing: border-box;
         height: 100vh;
+        overflow-y: auto;
         color: #a0a4a7;
         background: linear-gradient(-45deg, #1d232a 0%, #1e242b 10%, #1f252c 20%, #20262d 30%, #21272e 40%, #222830 50%, #21282f 60%, #252c34 70%, #242b32 80%, #232a31 90%, #232931 100%);
         padding: 20px;
 
+            @media (max-width: 990px) {
+                width: 100%;
+            }
+        &::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        &::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 6px grey;
+	        background-color: #b3cccc;
+            border-radius: 5px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: grey;
+	        border: 1px solid #555555;
+            border-radius: 5px;
+        }
         .nav-buttons {
             display: flex;
             width: 50px;
