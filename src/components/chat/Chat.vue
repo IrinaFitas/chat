@@ -56,7 +56,26 @@ export default {
 
 <style lang="scss" scoped>
     .container-chat {
+        height: calc(100vh - 160px);
         padding: 25px 25px 0 30px;
+        box-sizing: border-box;
+        overflow-y: auto;
+
+        &::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        &::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 6px grey;
+	        background-color: #b3cccc;
+            border-radius: 5px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: grey;
+	        border: 1px solid #555555;
+            border-radius: 5px;
+        }
 
         .box {
             display: flex;

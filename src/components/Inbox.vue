@@ -84,6 +84,10 @@ export default {
         background: linear-gradient(-45deg, #1d232a 0%, #1e242b 10%, #1f252c 20%, #20262d 30%, #21272e 40%, #222830 50%, #21282f 60%, #252c34 70%, #242b32 80%, #232a31 90%, #232931 100%);
         padding: 20px;
 
+            @media (max-width: 1265px) {
+                padding: 20px 10px;
+            }
+
             @media (max-width: 990px) {
                 width: 100%;
             }
@@ -140,7 +144,7 @@ export default {
         }
 
         .navigation {
-
+            width: 100%;
             ul {
                 list-style: none;				
                 font-size: 14px;
@@ -149,6 +153,14 @@ export default {
 				width: 190px;
 				padding-bottom: 15px;
 
+                @media (max-width: 1265px) {
+                    width: 180px;
+                }
+
+                @media (max-width: 1245px) {
+                    width: 170px;
+                }
+
 				+ ul {
                     border-top: 1px solid #363c44;
                     padding-top: 10px;
@@ -156,10 +168,15 @@ export default {
 			              
                 li	{
                     display: flex;
-                    width: 190px;
+                    flex-shrink: 1;
+                    width: 100%;
                     box-sizing: border-box;
                     padding: 10px;
                     line-height: 16px;
+
+                    @media (max-width: 1215px) {
+                        padding: 10px 0px;
+                    }
 
 					&:hover {
 						background-color: #333c44;

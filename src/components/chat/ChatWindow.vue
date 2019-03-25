@@ -40,25 +40,11 @@ export default {
         flex-grow: 1;
         background-image: linear-gradient(to right bottom, #f7fbfb 0%, #ecf1f5 10%, #eaeef4 20%, #e9ebf1 30%, #f0f2f4 40%, #f1f2f4 50%, #eceef2 60%, #eceef2 70%, #ebedf1 80%, #eaecf1 90%, #e7eaef 100%);
 
-        &::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        &::-webkit-scrollbar-track {
-            -webkit-box-shadow: inset 0 0 6px grey;
-	        background-color: #b3cccc;
-            border-radius: 5px;
-        }
-
-        &::-webkit-scrollbar-thumb {
-            background-color: grey;
-	        border: 1px solid #555555;
-            border-radius: 5px;
-        }
 
         header {
+            flex-shrink: 0;
             display: flex;
-            height: 79px;
+            height: 80px;
             box-sizing: border-box;
             border-bottom: 1px solid #dae0e1;
 
@@ -140,6 +126,7 @@ export default {
         }
 
         footer {
+            flex-shrink: 0;
             display: flex;
             align-items: center;
             margin-top: auto;

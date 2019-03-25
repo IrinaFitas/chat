@@ -121,6 +121,10 @@ export default {
 			width: 330px;
 		}
 
+		@media (max-width: 1035px) {
+			width: 300px;
+		}
+
 		@media (max-width: 990px) {
             position: fixed;
             top: 0;
@@ -133,7 +137,16 @@ export default {
 			height: 79px;
             box-sizing: border-box;
 			padding: 20px;
+			text-align: center;
 			border-bottom: 1px solid #363c44;
+
+			@media (max-width: 1385px) {
+				padding: 10px;
+			}
+
+			@media (max-width: 1320px) {
+				padding: 10px 3px;
+			}
 		}
 
 		input {
@@ -147,6 +160,26 @@ export default {
 			padding: 15px;
 			padding-left: 50px;
 			outline: none;
+
+			@media (max-width: 1375px) {
+				width: 250px;
+			}
+
+			@media (max-width: 1310px) {
+				width: 230px;
+			}
+
+			@media (max-width: 1275px) {
+				width: 220px;
+			}
+
+			@media (max-width: 1256px) {
+				width: 200px;
+			}
+
+			@media (max-width: 1085px) {
+				width: 210px;
+			}
 		}
 
 		.contact-list-container {
@@ -166,13 +199,22 @@ export default {
 					padding: 24px 20px 24px 15px;
 					box-sizing: border-box;
 
+					@media (max-width: 1020px) {
+						padding-left: 9px;
+					}
+
 					.user-photo {
 						position: relative;
+						flex-shrink: 0;
 						width: 50px;
 						height: 50px;
 						border-radius: 50%;
 						margin-right: 18px;
 						background-color: grey;
+
+						@media (max-width: 1310px) {
+							margin-right: 12px;
+						}
 
 						&::before {
 							display: block;
@@ -183,6 +225,10 @@ export default {
 							height: 6px;
 							background-color: #2dc100;
 							border-radius: 50%;
+
+							@media (max-width: 1020px) {
+								left: -6px;
+							}
 						}
 
 						&::after {
@@ -215,12 +261,20 @@ export default {
 			font-weight: bold;
 			outline: none;
 			cursor: pointer;
+
+			@media (max-width: 1235px) {
+				font-size: 20px;
+			}
 		}
 	}
 	.user-name {
 		font-size: 16px;
 		font-weight: bold;
 		margin: 0;
+
+		@media (max-width: 1235px) {
+			font-size: 14px;
+		}
 	}
 	.message {
 		margin: 5px 0 0;
@@ -233,6 +287,26 @@ export default {
 			white-space: nowrap;
 			text-overflow: ellipsis;
 			overflow: hidden;
+
+			@media (max-width: 1375px) {
+				width: 140px;
+			}
+
+			@media (max-width: 1300px) {
+				width: 130px;
+			}
+
+			@media (max-width: 1280px) {
+				width: 120px;
+			}
+			
+			@media (max-width: 1256px) {
+				width: 110px;
+			}
+
+			@media (max-width: 1240px) {
+				width: 90px;
+			}
 		}
 		&-time {
 			float: right;

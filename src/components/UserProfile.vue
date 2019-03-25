@@ -58,7 +58,7 @@ export default {
         height: 100vh;
         overflow-y: auto;
 
-        @media (max-width: 990px) {
+        @media (max-width: 1370px) {
             position: fixed;
             top: 0;
             right: 0;
