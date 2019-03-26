@@ -1,7 +1,7 @@
 <template>
 	<div id="app">
-		<app-inbox></app-inbox>
-		<app-contact-list></app-contact-list>
+		<app-inbox :showContactList="showContacts" @showContactList="showContacts = !showContacts"></app-inbox>
+		<app-contact-list :showMe="showContacts"></app-contact-list>
 		<app-chat-window></app-chat-window>
 		<app-user-profile></app-user-profile>
 	</div>
@@ -18,6 +18,11 @@ export default {
 		appContactList: ContactList,
 		appChatWindow: ChatWindow,
 		appUserProfile: UserProfile
+	},
+	data() {
+		return {
+			showContacts: false
+		}
 	}	
 }
 </script>

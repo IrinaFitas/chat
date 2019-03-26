@@ -6,7 +6,7 @@
                 <button class="specify-btn"></button>
                 <button class="call-btn"></button>
                 <button class="video-call-btn"></button>
-                <button class="user-profile-btn"></button>
+                <button class="user-profile-btn" @click="showUserProfile"></button>
             </div>
         </header>
         <app-chat></app-chat>
@@ -26,6 +26,12 @@ import Chat from "./Chat.vue";
 export default {
     components: {
         appChat: Chat
+    },
+
+    methods: {
+        showUserProfile() {
+            console.log("It`s alive too!");
+        }
     }
 }
 </script>

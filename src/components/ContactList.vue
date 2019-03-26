@@ -1,5 +1,5 @@
 <template>
-	<div class="container-contact-list" ref="contactList">
+	<div class="container-contact-list" :class="{'show': showMe}">
 		<div class="search-contact">
 			<input type="search" placeholder="Search">		
 		</div>
@@ -84,11 +84,9 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+
 export default {
-	computed: {
-		...mapGetters(["show"])
-	}
+	props: ["showMe"]
 }
 </script>
 
@@ -118,6 +116,7 @@ export default {
             border-radius: 5px;
         }
 
+
 		@media (max-width: 990px) {
             position: fixed;
             top: 0;
@@ -126,6 +125,13 @@ export default {
             transform: translateX(-100%);
 		}
 		
+		&.show {
+			position: fixed;
+            top: 0;
+			left: 0;
+			z-index: 10;
+			transform: translateX(18%);
+		}
 		.search-contact {
 			height: 79px;
             box-sizing: border-box;

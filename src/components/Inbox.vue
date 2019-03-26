@@ -1,7 +1,21 @@
 <template>
     <div class="container">
         <div class="nav-buttons">
-            <button type="button">
+            <button type="button" @click="show = !show">
+                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 294.843 294.843" style="enable-background:new 0 0 294.843 294.843;" xml:space="preserve" width="20px" height="20px">
+                    <g>
+                        <path d="M147.421,0C66.133,0,0,66.133,0,147.421c0,40.968,17.259,80.425,47.351,108.255c2.433,2.25,6.229,2.101,8.479-0.331
+                            c2.25-2.434,2.102-6.229-0.332-8.479C27.854,221.3,12,185.054,12,147.421C12,72.75,72.75,12,147.421,12
+                            s135.421,60.75,135.421,135.421s-60.75,135.421-135.421,135.421c-3.313,0-6,2.687-6,6s2.687,6,6,6
+                            c81.289,0,147.421-66.133,147.421-147.421S228.71,0,147.421,0z"/>
+                        <path d="M84.185,90.185h126.473c3.313,0,6-2.687,6-6s-2.687-6-6-6H84.185c-3.313,0-6,2.687-6,6S80.872,90.185,84.185,90.185z"/>
+                        <path d="M84.185,153.421h126.473c3.313,0,6-2.687,6-6s-2.687-6-6-6H84.185c-3.313,0-6,2.687-6,6S80.872,153.421,84.185,153.421z"/>
+                        <path d="M216.658,210.658c0-3.313-2.687-6-6-6H84.185c-3.313,0-6,2.687-6,6s2.687,6,6,6h126.473
+                            C213.971,216.658,216.658,213.971,216.658,210.658z"/>
+                    </g>
+                </svg>
+            </button>
+            <button type="button" class="show-contacts-icon" @click="showContacts">
                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve" width="20px" height="20px">
                     <g>
                         <g>
@@ -13,20 +27,6 @@
                                 l13.181,13.181c17.544,17.544,46.093,17.545,63.639,0L376,263.213L444.787,332H217.213z M466,310.787L397.213,242L466,173.213
                                 V310.787z"/>
                         </g>
-                    </g>
-                </svg>
-            </button>
-            <button type="button">
-                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 294.843 294.843" style="enable-background:new 0 0 294.843 294.843;" xml:space="preserve" width="20px" height="20px">
-                    <g>
-                        <path d="M147.421,0C66.133,0,0,66.133,0,147.421c0,40.968,17.259,80.425,47.351,108.255c2.433,2.25,6.229,2.101,8.479-0.331
-                            c2.25-2.434,2.102-6.229-0.332-8.479C27.854,221.3,12,185.054,12,147.421C12,72.75,72.75,12,147.421,12
-                            s135.421,60.75,135.421,135.421s-60.75,135.421-135.421,135.421c-3.313,0-6,2.687-6,6s2.687,6,6,6
-                            c81.289,0,147.421-66.133,147.421-147.421S228.71,0,147.421,0z"/>
-                        <path d="M84.185,90.185h126.473c3.313,0,6-2.687,6-6s-2.687-6-6-6H84.185c-3.313,0-6,2.687-6,6S80.872,90.185,84.185,90.185z"/>
-                        <path d="M84.185,153.421h126.473c3.313,0,6-2.687,6-6s-2.687-6-6-6H84.185c-3.313,0-6,2.687-6,6S80.872,153.421,84.185,153.421z"/>
-                        <path d="M216.658,210.658c0-3.313-2.687-6-6-6H84.185c-3.313,0-6,2.687-6,6s2.687,6,6,6h126.473
-                            C213.971,216.658,216.658,213.971,216.658,210.658z"/>
                     </g>
                 </svg>
             </button>
@@ -58,10 +58,20 @@
 
 <script>
 
+import { mapMutations } from "vuex";
+import { mapActions } from "vuex";
+
 export default {
     data () {
         return {
             show: false
+        }
+    },
+
+    props: ["showContactList"],
+    methods: {
+        showContacts() {
+            this.$emit("showContactList");
         }
     }
 }
@@ -83,9 +93,6 @@ export default {
                 padding: 20px 10px;
             }
 
-            @media (max-width: 990px) {
-                // width: 0;
-            }
         &::-webkit-scrollbar {
             width: 8px;
         }
@@ -105,6 +112,11 @@ export default {
             display: flex;
             width: 50px;
             flex-direction: column;
+            display: none;
+
+            @media (max-width: 1200px) {
+                display: flex;
+            }
 
             button {
                 font-size: 16px;
@@ -112,6 +124,14 @@ export default {
                 padding: 5px;
                 background-color: #ffffff;
                 outline: none;
+            }
+
+            .show-contacts-icon {
+                display: none;
+
+                @media (max-width: 990px) {
+                    display: block;
+                }
             }
         }
 
