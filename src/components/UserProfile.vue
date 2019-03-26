@@ -50,8 +50,7 @@ export default {
 
 <style lang="scss" scoped>
     .container-user-profile {
-        max-width: 275px;
-        flex-grow: 1;
+        width: 275px;
         flex-shrink: 0;
         box-sizing: border-box;
         background-color: #ffffff;
@@ -159,30 +158,18 @@ export default {
         .user-details {
             margin: 20px 30px 20px 30px;
 
-            @media (max-width: 1054px) {
-                margin: 20px 15px;
-            }
             .user-details-field {
                 display: flex;
                 padding-top: 20px;
                 padding-bottom: 20px;
                 font-size: 13px;
                 border-bottom: 1px solid #e5e5e5;
-
-                @media (max-width: 1024px) {
-                    flex-wrap: wrap;
-                    justify-content: center;
-                }
             }
 
             p {
                 flex-basis: 50%;
                 text-align: right;
                 margin: 0;
-                
-                @media (max-width: 1024px) {
-                    flex-basis: auto;
-                }
             }
 
             .field-name {

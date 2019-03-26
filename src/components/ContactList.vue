@@ -95,7 +95,8 @@ export default {
 
 <style lang="scss" scoped>
 	.container-contact-list {
-		max-width: 360px;
+		width: 360px;
+		flex-shrink: 0;
 		height: 100vh;
         overflow-y: auto;
 		color: #ffffff;

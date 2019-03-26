@@ -71,6 +71,7 @@ export default {
 <style lang="scss" scoped>
     .container {
         max-width: 230px;
+        flex-shrink: 0;
 		box-sizing: border-box;
         height: 100vh;
         overflow-y: auto;
@@ -83,7 +84,7 @@ export default {
             }
 
             @media (max-width: 990px) {
-                width: 100%;
+                // width: 0;
             }
         &::-webkit-scrollbar {
             width: 8px;
@@ -194,10 +195,4 @@ export default {
             display: none;
         }
     }
-    // .navbar-container {
-
-    //     @media (max-width: 1200px) {
-    //         display: none;
-    //     }
-    // }
 </style>
