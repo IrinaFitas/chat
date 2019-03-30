@@ -27,10 +27,9 @@ export default {
     components: {
         appChat: Chat
     },
-
     methods: {
         showUserProfile() {
-            console.log("It`s alive too!");
+            this.$emit("showUser");
         }
     }
 }
@@ -53,22 +52,16 @@ export default {
             box-sizing: border-box;
             border-bottom: 1px solid #dae0e1;
 
-            @media (max-width: 660px) {
-                flex-wrap: wrap;
-                height: 160px;
-                justify-content: space-between;
-            }
-
-            @media (max-width: 450px) {
-                height: 300px;
-            }
-
             p {
                 font-size: 14px;
                 color: #293037;
                 align-self: center;
                 padding-left: 30px; 
-                margin: 0;         
+                margin: 0;
+
+                @media (max-width: 660px) {
+                    padding-left: 10px;
+                }        
             }
 
             .buttons {
@@ -76,7 +69,7 @@ export default {
                 align-self: center;
 
                 @media (max-width: 660px) {
-                    margin: 0 5px;
+                    height: 40px;
                 }
 
                 button {
@@ -90,6 +83,8 @@ export default {
 
                     @media (max-width: 660px) {
                         border: none;
+                        width: 40px;
+                        height: 40px;
                     }
                 }
 
@@ -114,6 +109,13 @@ export default {
                         background-position: center;
                         background-color: #e0ebeb;
                         background-size: 40px 40px;
+                    }
+
+                    @media (max-width: 660px) {
+                        border: none;
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 50%;
                     }
                 }
             }

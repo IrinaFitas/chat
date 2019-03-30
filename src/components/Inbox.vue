@@ -1,7 +1,7 @@
 <template>
-    <div class="container">
+    <div class="container" :class="{ 'showInbox': showMe}">
         <div class="nav-buttons">
-            <button type="button" @click="show = !show">
+            <button type="button" @click="showInbox">
                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 294.843 294.843" style="enable-background:new 0 0 294.843 294.843;" xml:space="preserve" width="20px" height="20px">
                     <g>
                         <path d="M147.421,0C66.133,0,0,66.133,0,147.421c0,40.968,17.259,80.425,47.351,108.255c2.433,2.25,6.229,2.101,8.479-0.331
@@ -31,7 +31,7 @@
                 </svg>
             </button>
         </div>
-        <div class="navbar-container" :class="{'show-navbar': show}">
+        <div class="navbar-container">
             <header>
                 <p class="title">Inbox</p>
                 <button type="button" class="add-contact-btn"></button>
@@ -62,14 +62,11 @@ import { mapMutations } from "vuex";
 import { mapActions } from "vuex";
 
 export default {
-    data () {
-        return {
-            show: false
-        }
-    },
-
-    props: ["showContactList"],
+    props: ['showMe'],
     methods: {
+        showInbox() {
+            this.$emit("showInboxBar");
+        },
         showContacts() {
             this.$emit("showContactList");
         }
@@ -88,9 +85,18 @@ export default {
         color: #a0a4a7;
         background: linear-gradient(-45deg, #1d232a 0%, #1e242b 10%, #1f252c 20%, #20262d 30%, #21272e 40%, #222830 50%, #21282f 60%, #252c34 70%, #242b32 80%, #232a31 90%, #232931 100%);
         padding: 20px;
+        transition: transform 0.25s;
 
             @media (max-width: 1265px) {
                 padding: 20px 10px;
+            }
+
+            @media (max-width: 450px) {
+                position: fixed;
+                top: 0;
+                left: 0;
+                z-index: 10;
+                transform: translateX(-100%);
             }
 
         &::-webkit-scrollbar {
@@ -108,6 +114,15 @@ export default {
 	        border: 1px solid #555555;
             border-radius: 5px;
         }
+
+        &.showInbox {
+            position: fixed;
+            top: 0;
+			left: 0;
+			z-index: 10;
+			transform: translateX(0%);
+            transition: transform 0.25s ease-in-out;
+        }
         .nav-buttons {
             display: flex;
             width: 50px;
@@ -116,6 +131,15 @@ export default {
 
             @media (max-width: 1200px) {
                 display: flex;
+            }
+
+            @media (max-width: 450px) {
+                position: fixed;
+                top: 0;
+                left: 0;
+                z-index: 10;
+                transform: translateX(30px);
+                z-index: 100;
             }
 
             button {
@@ -206,11 +230,14 @@ export default {
             }
         }
     }
-    .navbar-container {
-        
-        &.show-navbar {
+    .showInbox {
+
+        .navbar-container {
             display: block;
         }
+    }
+    .navbar-container {
+
         @media (max-width: 1200px) {
             display: none;
         }

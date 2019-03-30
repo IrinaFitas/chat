@@ -1,5 +1,5 @@
 <template>
-    <div class="container-user-profile">
+    <div class="container-user-profile" :class="{'show': showMe}">
         <header>
             <button class="notification-btn"></button>
             <p>Matt Thompson</p>
@@ -44,7 +44,7 @@
 
 <script>
 export default {
-    
+    props: ["showMe"]
 }
 </script>
 
@@ -63,9 +63,10 @@ export default {
             right: 0;
             transition: transform 0.25s ease-in-out;
             transform: translateX(100%);
-
-            &.is-opened {
+        
+            &.show {
                 transform: translateX(0%);
+                z-index: 10;
             }
         }
 

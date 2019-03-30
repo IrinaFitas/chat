@@ -123,6 +123,7 @@ export default {
             left: 0;
             transition: transform 0.25s ease-in-out;
             transform: translateX(-100%);
+			z-index: 10;
 		}
 		
 		&.show {
@@ -130,7 +131,7 @@ export default {
             top: 0;
 			left: 0;
 			z-index: 10;
-			transform: translateX(18%);
+			transform: translateX(0%);
 		}
 		.search-contact {
 			height: 79px;
