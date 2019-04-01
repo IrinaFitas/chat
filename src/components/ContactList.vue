@@ -1,79 +1,19 @@
 <template>
 	<div class="container-contact-list" :class="{'show': showMe}">
 		<div class="search-contact">
-			<input type="search" placeholder="Search">		
+			<input type="search" placeholder="Search" v-model="searchUser">		
 		</div>
 
 		<div class="contact-list-container">
 			<ul class='contact-list'>
-				<li>
+				<li v-for="(message, index) in filteredListOfLastMessage" :key="index">
 					<div class="content-list">
-						<div class="user-photo"></div>
+						<div class="user-photo" :style="`background-image: url(${message.avatarImg})`"></div>
 						<div class="user-message">
-							<p class="user-name">Matt Thompson<button>...</button></p>
+							<p class="user-name">{{ message.firstName }} {{ message.lastName }} <button>...</button></p>
 							<p class="message">
-								<span class="message-text">Thanks again you have been</span>
-								<span class="message-time">10 min</span>
-							</p>
-						</div>						
-					</div>
-				</li>
-				<li>
-					<div class="content-list">
-						<div class="user-photo"></div>
-						<div class="user-message">
-							<p class="user-name">Claire Sharwood<button>...</button></p>
-							<p class="message">
-								<span class="message-text">My selfie game is lacking canMy selfie game is lacking canMy selfie game is lacking canMy selfie game is lacking can</span>
-								<span class="message-time">10 min</span>
-							</p>
-						</div>
-					</div>
-				</li>
-				<li>
-					<div class="content-list">
-						<div class="user-photo"></div>
-						<div class="user-message">
-							<p class="user-name">Kirsten Mckellar<button>...</button></p>
-							<p class="message">
-								<span class="message-text">Where is the nearest place to</span>
-								<span class="message-time">10 min</span>
-							</p>
-						</div>
-					</div>
-				</li>
-				<li>
-					<div class="content-list">
-						<div class="user-photo"></div>
-						<div class="user-message">
-							<p class="user-name">Shaun Gardner<button>...</button></p>
-							<p class="message">
-								<span class="message-text">Ok that sounds perfect</span>
-								<span class="message-time">10 min</span>
-							</p>
-						</div>
-					</div>
-				</li>
-				<li>
-					<div class="content-list">
-						<div class="user-photo"></div>
-						<div class="user-message">
-							<p class="user-name">Mace Windu<button>...</button></p>
-							<p class="message">
-								<span class="message-text">Protect the senator at all costs.</span>
-								<span class="message-time">10 min</span>
-							</p>
-						</div>
-					</div>
-				</li>
-				<li>
-					<div class="content-list">
-						<div class="user-photo"></div>
-						<div class="user-message">
-							<p class="user-name">Kayne West<button>...</button></p>
-							<p class="message">
-								<span class="message-text">So tell the voice inside your So tell the voice inside your</span>
-								<span class="message-time">10 min</span>
+								<span class="message-text"> {{ message.msg }} </span>
+								<span class="message-time"> {{ message.msgDate }} </span>
 							</p>
 						</div>
 					</div>
@@ -86,7 +26,94 @@
 <script>
 
 export default {
-	props: ["showMe"]
+	props: ["showMe"],
+	data() {
+		return {
+			listOfLastMessages: [
+				{
+					user_id: 1,
+					avatarImg: "https://randomuser.me/api/portraits/lego/0.jpg",
+					firstName: "Matt",
+					lastName: "Thompson",
+					msg: "Thanks again you have been",
+					msgDate: "2019-03-25T12:00:00Z"
+				},
+
+				{
+					user_id: 2,
+					avatarImg: "https://randomuser.me/api/portraits/lego/1.jpg",
+					firstName: "Claire",
+					lastName: "Sharwood",
+					msg: "My selfie game is lacking canMy selfie game is lacking canMy selfie game is lacking canMy selfie game is lacking can",
+					msgDate: "2015-03-25T12:00:00Z"	
+				},
+
+				{
+					user_id: 3,
+					avatarImg: "https://randomuser.me/api/portraits/lego/2.jpg",
+					firstName: "Kirsten",
+					lastName: "Mckellar",
+					msg: "Where is the nearest place to",
+					msgDate: "2015-03-25T12:00:00Z"	
+				},
+
+				{
+					user_id: 4,
+					avatarImg: "https://randomuser.me/api/portraits/lego/3.jpg",
+					firstName: "Shaun",
+					lastName: "Gardner",
+					msg: "Ok that sounds perfect",
+					msgDate: "2015-03-25T12:00:00Z"	
+				},
+
+				{
+					user_id: 5,
+					avatarImg: "https://randomuser.me/api/portraits/lego/4.jpg",
+					firstName: "Mace",
+					lastName: "Windu",
+					msg: "Protect the senator at all costs.",
+					msgDate: "2015-03-25T12:00:00Z"	
+				},
+
+				{
+					user_id: 6,
+					avatarImg: "https://randomuser.me/api/portraits/lego/5.jpg",
+					firstName: "Kayne",
+					lastName: "West",
+					msg: "So tell the voice inside your So tell the voice inside your",
+					msgDate: "2015-03-25T12:00:00Z"	
+				}
+			],
+
+			searchUser: ""
+		}
+	},
+
+	created() {
+		this.formatDate();
+	},
+
+	computed: {
+		filteredListOfLastMessage() {
+			if (this.searchUser) {
+				return this.listOfLastMessages.filter(elem =>
+					elem.firstName.toLowerCase().includes(this.searchUser.toLowerCase()) ||
+					elem.lastName.toLowerCase().includes(this.searchUser.toLowerCase()));
+			}
+			return this.listOfLastMessages;
+		}
+	},
+	methods: {
+		formatDate() {
+			this.listOfLastMessages = this.listOfLastMessages.map( elem => {
+				let time = new Date(Date.parse(elem.msgDate)).toLocaleString();
+				return {
+					...elem,
+					msgDate: `${time.slice(0, 5)}${time.slice(11, -3)}`
+				};
+			});
+		}
+	}
 }
 </script>
 
@@ -124,6 +151,10 @@ export default {
             transition: transform 0.25s ease-in-out;
             transform: translateX(-100%);
 			z-index: 10;
+		}
+
+		@media (max-width: 450px) {
+			width: 80%;
 		}
 		
 		&.show {
@@ -187,6 +218,9 @@ export default {
 						border-radius: 50%;
 						margin-right: 18px;
 						background-color: grey;
+						background-position: center;
+						background-size: 50px 50px;
+						background-repeat: no-repeat;
 
 						&::before {
 							display: block;

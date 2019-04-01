@@ -92,11 +92,7 @@ export default {
             }
 
             @media (max-width: 450px) {
-                position: fixed;
-                top: 0;
-                left: 0;
-                z-index: 10;
-                transform: translateX(-100%);
+                padding: 0;
             }
 
         &::-webkit-scrollbar {

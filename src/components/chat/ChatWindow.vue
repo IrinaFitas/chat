@@ -12,7 +12,7 @@
         <app-chat></app-chat>
         <footer>
             <button class="attach-btn"></button>
-            <div class="type-message" contenteditable="true">Type your message...</div>
+            <div class="type-message" contenteditable="true" placeholder="Type your message..."></div>
             <div class="btn-send-emojis">
                 <button class="emoji-btn"></button>
                 <button class="send-btn"></button>
@@ -163,6 +163,10 @@ export default {
                 margin-left: auto;
             }
         }
+    }
+    .type-message:empty::before {
+        display: block;
+        content: attr(placeholder);
     }
 </style>
 
