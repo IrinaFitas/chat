@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <header>
-            <p><strong>Kirsten Mckellar</strong> is typing...</p>
+            <p><strong>Kirsten Mckellar</strong> <span v-if="isTyping">is typing...</span></p>
             <div class="buttons">
                 <button class="specify-btn"></button>
                 <button class="call-btn"></button>
@@ -22,11 +22,26 @@
 </template>
 
 <script>
+const mockedMessages = [
+    "It goes a little something like this.",
+    "It was all a dream, I used to read Word Up magazine Salt'n'Pepa and Heavy D up in the limousine.",
+    "Did you ever Hang' pictures on your wall?",
+    "Yes I did! Every Saturday! Rap Attack, Mr. Magic, Marley Marl. I even let my tape rock 'til my tape popped. Smokin' weed and bamboo, sippin' on private stock.  But this was way back, when I had the red and black lumberjack with the hat to match.",
+    "Haha awesome,  I think I know the album your looking. for."
+];
+
 import Chat from "./Chat.vue";
 import { mapActions } from 'vuex';
+
 export default {
     components: {
         appChat: Chat
+    },
+
+    data() {
+        return {
+            isTyping: false
+        }
     },
     methods: {
         ...mapActions(['sendMessage']),
@@ -37,9 +52,23 @@ export default {
         send() {
             this.sendMessage({
                 message: this.$refs.inputMsg.textContent,
-                time: Date.now()
+                time: Date().slice(16, -45)
             });
             this.$refs.inputMsg.textContent = "";
+            this.getMessageFromUser();
+        },
+
+        getMessageFromUser() {
+            const randomMessage = Math.round(Math.random() * (mockedMessages.length - 1) + 1);
+            this.isTyping = true;
+            setTimeout(() => {
+                this.sendMessage({
+                    message: mockedMessages[randomMessage],
+                    time: Date().slice(16, -45),
+                    senderId: 1
+                });
+                this.isTyping = false;
+            }, 3000);
         }
         
     }
@@ -69,6 +98,11 @@ export default {
                 align-self: center;
                 padding-left: 30px; 
                 margin: 0;
+
+                span {
+                    margin-left: 5px;
+                    color: grey;
+                }
 
                 @media (max-width: 660px) {
                     padding-left: 10px;

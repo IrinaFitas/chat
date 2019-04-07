@@ -1,56 +1,28 @@
 <template>
     <div class="container-chat">
-        <div class="box incoming-message">
+        <div v-for="(message, index) in receiveMessages" :key="index" :class="['box', messageBoxClass(message.senderId)]">
             <div class="photo-box">
                 <div class="photo"></div>
-                <p class="time">10.25</p>
+                <p class="time">{{ message.time }}</p>
             </div>
             <div class="message-box">
-                <p class="text">It goes a little something like this.</p>
-            </div>
-        </div>
-        <div class="box incoming-message">
-            <div class="photo-box">
-                <div class="photo"></div>
-                <p class="time">10.25</p>
-            </div>
-            <div class="message-box">
-                <p class="text">It was all a dream, I used to read Word Up magazine Salt'n'Pepa and Heavy D up in the limousine.</p>
-            </div>
-        </div>
-        <div class="box outcoming-message">
-            <div class="message-box">
-                <p class="text">Did you ever Hang' pictures on your wall?</p>
-            </div>
-            <div class="photo-box">
-                <div class="photo"></div>
-                <p class="time">10.25</p>
-            </div>
-        </div>
-        <div class="box incoming-message">
-            <div class="photo-box">
-                <div class="photo"></div>
-                <p class="time">10.25</p>
-            </div>
-            <div class="message-box">
-                <p class="text">Yes I did! Every Saturday! Rap Attack, Mr. Magic, Marley Marl. I even let my tape rock 'til my tape popped. Smokin' weed and bamboo, sippin' on private stock.  But this was way back, when I had the red and black lumberjack with the hat to match.</p>
-            </div>
-        </div>
-        <div class="box outcoming-message">
-            <div class="message-box">
-                <p class="text">Haha awesome,  I think I know the album your looking. for.</p>
-            </div>
-            <div class="photo-box">
-                <div class="photo"></div>
-                <p class="time">10.25</p>
+                <p class="text">{{ message.message }}</p>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
-
+    computed: {
+        ...mapGetters(["receiveMessages"])
+    },
+    methods: {
+        messageBoxClass(senderId) {
+            return senderId ? 'incoming-message' : 'outcoming-message';
+        }
+    }
 }
 </script>
 
@@ -153,6 +125,7 @@ export default {
 
             .photo-box {
                 margin-left: 30px;
+                order: 1;
             }
             .message-box {
                 color: #ffffff;

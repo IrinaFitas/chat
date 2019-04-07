@@ -6,7 +6,7 @@
 
 		<div class="contact-list-container">
 			<ul class='contact-list'>
-				<li v-for="(message, index) in filteredListOfLastMessage" :key="index">
+				<li v-for="(message, index) in filteredListOfLastMessage" :key="index" @click="">
 					<div class="content-list">
 						<div class="user-photo" :style="`background-image: url(${message.avatarImg})`"></div>
 						<div class="user-message">
@@ -209,6 +209,11 @@ export default {
 					align-items: center;
 					padding: 24px 20px 24px 15px;
 					box-sizing: border-box;
+					
+					&:hover {
+						background-color: #333c44;
+					}
+		
 
 					.user-photo {
 						position: relative;

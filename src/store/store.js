@@ -5,13 +5,17 @@ Vue.use(Vuex);
 
 export const store = new Vuex.Store({
     state: {
-        showContactList: false,
-        myMessages: []
+        currentDialogUserId: null,
+        messages: []
     },
-    getters: {},
+    getters: {
+        receiveMessages: state => {
+            return state.messages;
+        }
+    },
     mutations: {
         sendMessage: (state, payload) => {
-            state.myMessages.push(payload);
+            state.messages.push(payload);
         }
     },
     actions: {
