@@ -36,7 +36,7 @@ export default {
 					firstName: "Matt",
 					lastName: "Thompson",
 					msg: "Thanks again you have been",
-					msgDate: "2019-03-25T12:00:00Z"
+					msgDate: "2019-04-12T07:00:00Z"
 				},
 
 				{
@@ -45,7 +45,7 @@ export default {
 					firstName: "Claire",
 					lastName: "Sharwood",
 					msg: "My selfie game is lacking canMy selfie game is lacking canMy selfie game is lacking canMy selfie game is lacking can",
-					msgDate: "2015-03-25T12:00:00Z"	
+					msgDate: "2019-02-02T23:46:00Z"	
 				},
 
 				{
@@ -54,7 +54,7 @@ export default {
 					firstName: "Kirsten",
 					lastName: "Mckellar",
 					msg: "Where is the nearest place to",
-					msgDate: "2015-03-25T12:00:00Z"	
+					msgDate: "2019-01-25T12:00:00Z"	
 				},
 
 				{
@@ -63,7 +63,7 @@ export default {
 					firstName: "Shaun",
 					lastName: "Gardner",
 					msg: "Ok that sounds perfect",
-					msgDate: "2015-03-25T12:00:00Z"	
+					msgDate: "2018-12-06T13:45:00Z"	
 				},
 
 				{
@@ -72,7 +72,7 @@ export default {
 					firstName: "Mace",
 					lastName: "Windu",
 					msg: "Protect the senator at all costs.",
-					msgDate: "2015-03-25T12:00:00Z"	
+					msgDate: "2019-02-25T00:02:00Z"	
 				},
 
 				{
@@ -81,7 +81,7 @@ export default {
 					firstName: "Kayne",
 					lastName: "West",
 					msg: "So tell the voice inside your So tell the voice inside your",
-					msgDate: "2015-03-25T12:00:00Z"	
+					msgDate: "2019-03-18T12:50:00Z"	
 				}
 			],
 

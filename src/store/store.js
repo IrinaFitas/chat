@@ -5,10 +5,18 @@ Vue.use(Vuex);
 
 export const store = new Vuex.Store({
     state: {
-        showContactList: false
+        showContactList: false,
+        myMessages: []
     },
     getters: {},
     mutations: {
+        sendMessage: (state, payload) => {
+            state.myMessages.push(payload);
+        }
     },
-    actions: {}
+    actions: {
+        sendMessage: ({ commit }, payload) => {
+            commit("sendMessage", payload);
+        }
+    }
 });

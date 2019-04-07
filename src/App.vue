@@ -44,6 +44,7 @@ export default {
 			this.showContacts = !this.showContacts;
 			let overlay = document.createElement("div");
 			overlay.classList.add("overlay");
+			overlay.classList.add("for-contacts");
 			document.body.appendChild(overlay);
 
 			overlay.addEventListener("click", (e) => {
@@ -56,6 +57,7 @@ export default {
 			this.showUserProfile = !this.showUserProfile;
 			let overlay = document.createElement("div");
 			overlay.classList.add("overlay");
+			overlay.classList.add("for-user-profile");
 			document.body.appendChild(overlay);
 
 			overlay.addEventListener("click", (e) => {
@@ -90,5 +92,25 @@ body {
 	left: 0;
 	background-color: rgba(0, 0, 0, 0.5);
 	z-index: 1;
+
+	&::before {
+		content: "\2716";
+		position: absolute;
+		top: 0;
+		left: 200px;
+		width: 25px;
+		height: 25px;
+		font-size: 22px;
+		color: #ffffff;
+		cursor: pointer;		
+	}
+
+	&.for-contacts::before {
+		left: 380px;
+	}
+
+	&.for-user-profile::before {
+		left: 50%;
+	}
 }
 </style>

@@ -12,10 +12,10 @@
         <app-chat></app-chat>
         <footer>
             <button class="attach-btn"></button>
-            <div class="type-message" contenteditable="true" placeholder="Type your message..."></div>
+            <div class="type-message" contenteditable="true" placeholder="Type your message..." @keyup.enter="send" ref="inputMsg"></div>
             <div class="btn-send-emojis">
                 <button class="emoji-btn"></button>
-                <button class="send-btn"></button>
+                <button class="send-btn" @click="send"></button>
             </div>
         </footer>
     </div>
@@ -23,14 +23,25 @@
 
 <script>
 import Chat from "./Chat.vue";
+import { mapActions } from 'vuex';
 export default {
     components: {
         appChat: Chat
     },
     methods: {
+        ...mapActions(['sendMessage']),
         showUserProfile() {
             this.$emit("showUser");
+        },
+
+        send() {
+            this.sendMessage({
+                message: this.$refs.inputMsg.textContent,
+                time: Date.now()
+            });
+            this.$refs.inputMsg.textContent = "";
         }
+        
     }
 }
 </script>
@@ -132,6 +143,7 @@ export default {
             box-sizing: border-box;
             background-color: #fbfcfd;
             border-top: 1px solid #dae0e1;
+            overflow: hidden;
 
             button {
                 outline: none;
@@ -139,6 +151,7 @@ export default {
             }
 
             .attach-btn {
+                flex-shrink: 0;
                 width: 22px;
                 height: 30px;
                 margin-right: 25px;
@@ -153,6 +166,7 @@ export default {
             }
 
             .send-btn {
+                flex-shrink: 0;
                 width: 38px;
                 height: 38px;
                 border-radius: 50%;
@@ -161,8 +175,21 @@ export default {
 
             .btn-send-emojis {
                 margin-left: auto;
+                flex-shrink: 0;
             }
         }
+    }
+    
+    .type-message {
+        flex-grow: 1;
+        max-height: 80px;
+        padding: 5px 0;
+        font-size: 14px;
+        overflow-y: auto;
+        outline: none;
+        box-sizing: border-box;
+        cursor: text;
+        word-break: break-all;
     }
     .type-message:empty::before {
         display: block;
